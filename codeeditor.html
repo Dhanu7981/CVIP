@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>online code editor</title>
+        <link rel="stylesheet" href="codeeditor.css">
+        <script src="https://kit.fontawesome.com/d2b35765c9.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>ONLINE  CODE
+            EDITOR</h1>
+            
+            <div class="left">
+                <label><i class="fa-brands fa-html5 fa-bounce" style="color: #ce521c;"></i>HTML</label>
+                <textarea id="html-code" onkeyup="run()"></textarea>
+
+                <label><i class="fa-brands fa-css3-alt fa-bounce" style="color: #36a3e7;"></i>CSS</label>
+                <textarea id="css-code" onkeyup="run()"></textarea>
+
+                <label><i class="fa-brands fa-square-js fa-bounce" style="color: #e0d90b;"></i>JAVA SCRIPT</label>
+                <textarea id="js-code" onkeyup="run()"></textarea>
+            </div>
+            <div class="right">
+                <label><i class="fa-sharp fa-solid fa-angles-right fa-bounce" style="color: #ffffff;"></i>OUTPUT</label>
+                <iframe id="output"></iframe>
+            </div>
+        </div>
+        <script>
+            function run(){
+                let htmlCode = document.getElementById("html-code").value;
+                let cssCode = document.getElementById("css-code").value;
+                let jsCode = document.getElementById("js-code").value;
+                let output = document.getElementById("output");
+
+                output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
+                output.contentWindow.eval(jsCode);
+            }
+        </script>
+    </body>
+</html>
